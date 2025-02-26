@@ -8,6 +8,7 @@ import sendDocumentation from './controllers/documentationController.js';
 
 import articleRouter from './routers/articleRouter.js';
 import userRouter from './routers/userRouter.js';
+import authRouter from './routers/authRouter.js';
 
 const PORT = 3000;
 
@@ -22,6 +23,7 @@ app.get('/', sendDocumentation);
 
 app.use('/articles', articleRouter);
 app.use('/users', userRouter);
+app.use('/auth', authRouter);
 
 app.use(notFound);
 
