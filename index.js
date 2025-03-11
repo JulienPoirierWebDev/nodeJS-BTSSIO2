@@ -1,6 +1,5 @@
 import 'dotenv/config';
 import express from 'express';
-import mongoose from 'mongoose';
 
 import connectDB from './services/mongo.js';
 import notFound from './middlewares/404.js';

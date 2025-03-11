@@ -13,6 +13,23 @@ const createOneUser = async (request, response) => {
 		return;
 	}
 
+	try {
+		const user = await User.findOne({ email: email }).exec();
+
+		if (user) {
+			response.status(409).json({
+				error: true,
+				message: 'Il y a déja un utilisateur avec cet email',
+			});
+			return;
+		}
+	} catch (error) {
+		response.status(500).json({
+			error: true,
+			message: 'Erreur coté serveur',
+		});
+	}
+
 	const hashedPassword = await bcrypt.hash(password, 12);
 
 	try {

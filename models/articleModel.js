@@ -9,6 +9,6 @@ const articleSchema = new mongoose.Schema(
 	{ strict: false }
 );
 
-const Article = mongoose.model('articles', articleSchema);
+const Article = mongoose.model('article', articleSchema);
 
 export default Article;
